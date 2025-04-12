@@ -1,0 +1,169 @@
+/* General Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Parking Section Styles */
+#parking-section {
+    padding: 20px;
+}
+
+#parking-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Parking Slots Container */
+#parking-slots {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    justify-items: center;
+    margin-bottom: 20px;
+}
+
+/* Slot Styles */
+.slot {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Slot Status Colors */
+.available {
+    background-color: #fff;
+    color: #333;
+    border-color: #28a745;
+}
+
+.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.reserved {
+    background-color: #dc3545;
+    color: white;
+    cursor: not-allowed;
+}
+
+.unavailable {
+    background-color: #ffc107;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Slot Hover Effect */
+.slot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slot.reserved:hover,
+.slot.unavailable:hover {
+    transform: none;
+}
+
+/* Booking Button */
+.btn {
+    display: block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Legend Styles */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: default;
+}
+
+.legend-item.available {
+    background-color: #fff;
+    border-color: #28a745;
+}
+
+.legend-item.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.legend-item.reserved {
+    background-color: #dc3545;
+    color: white;
+}
+
+.legend-item.unavailable {
+    background-color: #ffc107;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+}

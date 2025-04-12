@@ -1,0 +1,123 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Outfit", sans-serif; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./images/checkout.jpeg') no-repeat center center; 
+    background-size: cover;
+}
+
+/* Container styles */
+.container {
+    width: 1000px; 
+    background: rgba(255, 255, 255, 0.1); 
+    border: 2px solid rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(9px); 
+    color: white;
+    border-radius: 14px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Booking form styles */
+.booking-form {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.food-image img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); 
+}
+
+/* Heading styles */
+h1 {
+    font-size: 39px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white; 
+}
+
+/* Form group styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: white; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    background: transparent; 
+    border: 2px solid rgba(255, 255, 255, 0.2); 
+    border-radius: 60px; 
+    font-size: 14px;
+    color: white; 
+    text-indent: 15px; 
+    margin: 10px 0; 
+}
+
+input::placeholder {
+    color: white; 
+}
+
+input:focus, 
+button:focus {
+    border-color: transparent;
+}
+
+/* Button styles */
+.book-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #02a152; 
+    color: white;
+    border: none;
+    border-radius: 60px; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.book-btn:hover {
+    background-color: #45a049; 
+}
+
+
+a.book-btn {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+

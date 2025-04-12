@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+        .menu-item {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .menu-item-img {
+            width: 300px; /* Adjust this value to control the size */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color:#333;
+        }
+
+        .menu-item h3 {
+           margin-bottom: 150px; 
+        }
+        
+        .menu-item span {
+           display: block;
+           margin-bottom: 15px; 
+        }
+
+        .cart {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -4px 0 8px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .close-cart {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .menu-item .cartbtn {
+            margin-top: 100px; 
+            padding: 10px 20px;
+            background-color: #ff9800;
+            border: none;
+            color: white;
+            cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header">
+        <h1>The Gallery Cafe</h1>
+        <div class="cart-icon" onclick="toggleCart()">🛒</div>
+    </div>
+</header>
+
+<main>
+    <div class="menu-item">
+        <img src="./images/pasta-spaghetti-with-shrimps-sauce.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Prawns Spaghetti</h3> 
+    </br></br>
+        <span>LKR.2500.00</span>
+    </br></br>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/pie.jpg" alt="Item 2 Image" class="menu-item-img">
+        <h3>Creamy Tomato and Spinach Pasta</h3>
+        <span>LKR.2000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/delicious-pasta-plate (1).jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Creamy Garlic Pasta</h3>
+        <span>LKR.2000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/lasanga.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chicken Lasagna</h3>
+        <span>LKR.4500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/gourmet-meal-fresh-lasagna-cooked-meat-healthy-vegetables-generated-by-artificial-intelligence.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Beef Lasagna</h3>
+        <span>LKR.4500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/Screenshot 2024-09-16 103336.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>chesse Lasagna</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/pepperoni pizza.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>pepperoni Pizza</h3>
+        <span>LKR.5000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/beef pizza.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Beef Pizza</h3>
+        <span>LKR.4000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/double chiken pizza.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Double Chicken Pizza</h3>
+        <span>LKR.4500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/pinapple pizza.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>pineapple pizza</h3>
+        <span>LKR.2000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/view-delicious-dessert.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>chocolate mousse</h3>
+        <span>LKR.1500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/chocolate-cake-oozes-with-rich-ganache-sleek-plate.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>chocolate Cake</h3>
+        <span>LKR.1500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/view-delicious-frozen-ice-cream-dessert-with-bananas.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Vanila Ice Cream</h3>
+        <span>LKR.2000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/close-up-fancy-dessert.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>Coffice Cake</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+
+    <div class="menu-item">
+        <img src="./images/indulgent-chocolate-dessert-with-fresh-fruit-slices-generated-by-ai.jpg" alt="Item 1 Image" class="menu-item-img">
+        <h3>chocolate Ice Cream</h3>
+        <span>LKR.1800.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/noodels.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Noodles</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="images/dumplin3.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chicken Dumplings</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/dumpling2.png" alt="Item 1 Image" class="menu-item-img">
+        <h3> Beef Dumplings</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/sushi.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Sushi</h3>
+        <span>LKR.3500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/Chi.soup.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chicken Soup</h3>
+        <span>LKR.1000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/chin.rice.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chinese Rice</h3>
+        <span>LKR.4500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/porkmix.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Pork Mix</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+        <img src="./images/p.mix.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chicken Mix</h3>
+        <span>LKR.3000.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/Rice Noodle.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Rice noodels</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+    <div class="menu-item">
+        <img src="./images/chi.noodles.png" alt="Item 1 Image" class="menu-item-img">
+        <h3>Chicken Noodles</h3>
+        <span>LKR.2500.00</span>
+        <button class="cartbtn">Add to Cart</button>
+    </div>
+
+   
+</main>
+
+<div class="cart" id="cart">
+    <button class="close-cart" onclick="toggleCart()">X</button>
+    <h2> My Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Total: LKR.0</p>
+    <button onclick="checkout()">Checkout</button>
+    <button class="cartbtn"><a href="checkout.html">Place Your Order</button> 
+    
+</div>
+
+<script src="cart.js"></script>
+</body>
+</html>

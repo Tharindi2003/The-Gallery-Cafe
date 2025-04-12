@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('./images/checkout.jpeg') no-repeat center center fixed; /* Replace with your image */
+            background-size: cover;
+            color: #fff; /* White text */
+        }
+
+        /* Form container */
+        form {
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with some transparency */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Form title */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        /* Form labels */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Form inputs */
+        input[type="text"], 
+        input[type="email"],
+        input[type="number"], 
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        input[type="text"]::placeholder, 
+        input[type="email"]::placeholder,
+        input[type="number"]::placeholder, 
+        textarea::placeholder {
+            color: #ccc;
+        }
+
+        /* Submit button */
+        input[type="submit"] {
+            background-color: #fff;
+            color: #000;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ddd;
+        }
+
+        /* For better readability on mobile devices */
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="process_checkout.php" method="POST">
+        <h1>Checkout</h1>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required><br>
+        
+        <label for="table_number">Table Number:</label>
+        <textarea id="table_number" name="table_number" placeholder="Enter your table number" required></textarea><br>
+
+        <label for="total_amount">Total Amount:</label>
+        <input type="number" id="total_amount" name="total_amount" step="0.01" required readonly><br>
+        
+        <input type="submit" value="Place Order">
+    </form>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    // Get the total amount from localStorage
+    const totalAmount = localStorage.getItem('totalAmount');
+    
+    // Set the value of the total amount input field
+    if (totalAmount) {
+        document.getElementById('total_amount').value = totalAmount;
+    }
+});
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+/* Reset margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Fallback black background */
+    background-image: url('./images/restaurant-table-14-persons-restaurant-hall-with-brick-walls-wide-windows-wood-ceiling.jpg'); 
+    background-size: cover; /* Makes the image cover the whole background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Ensures the image doesn't repeat */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+    color: #fff; /* White text color */
+}
+
+/* Header styling */
+header {
+    background-color: #111; /* Darker shade for the header */
+    padding: 20px 0; /* Increased padding */
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1); /* White shadow for contrast */
+    text-align: center;
+    position: relative;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 28px; /* Slightly larger font size */
+    font-weight: bold;
+    color: #fff; /* White text */
+}
+
+header .welcome {
+    display: flex;
+    align-items: center;
+}
+
+header .welcome span {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #fff; /* White text for welcome message */
+}
+
+/* Log out button styling */
+.logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; /* Larger padding for a bigger button */
+    background-color: #333; /* Dark background for the button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.logout-btn i {
+    margin-right: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #555; /* Lighter on hover */
+}
+
+/* Main container styling */
+main .container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111; /* Dark background for the container */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* White shadow */
+    border-radius: 8px;
+}
+
+/* Grid layout for the buttons */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Bigger minimum width */
+    gap: 20px;
+    justify-content: space-around;
+}
+
+/* Button styling */
+.menu-item {
+    display: inline-block;
+    padding: 30px 40px; /* Increased padding for bigger buttons */
+    text-align: center;
+    background-color: #fff; /* White background for contrast */
+    border-radius: 10px; /* Bigger border radius */
+    font-size: 22px; /* Larger font size */
+    font-weight: bold;
+    color: #000; /* Black text */
+    text-decoration: none;
+    box-shadow: 0 6px 8px rgba(255, 255, 255, 0.1); /* Increased shadow size */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for buttons */
+.menu-item:hover {
+    background-color: #ccc; /* Lighter color on hover */
+    transform: scale(1.1); /* Larger scale on hover */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #111; /* Dark footer background */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

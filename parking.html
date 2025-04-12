@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parking System</title>
+    <link rel="stylesheet" href="parking.css">
+</head>
+<body>
+
+<header>
+    <h1>Car Parking System</h1>
+</header>
+
+<section id="parking-section">
+    <h2>Select a Parking Slot</h2>
+
+    <!-- Parking Slots Layout -->
+    <div id="parking-slots">
+        <!-- Row A -->
+        <div class="slot available" id="A1" onclick="selectSlot('A1')">A1</div>
+        <div class="slot available" id="A2" onclick="selectSlot('A2')">A2</div>
+        <div class="slot available" id="A3" onclick="selectSlot('A3')">A3</div>
+        <div class="slot available" id="A4" onclick="selectSlot('A4')">A4</div>
+        <div class="slot available" id="A5" onclick="selectSlot('A5')">A5</div>
+
+        <!-- Row B -->
+        <div class="slot available" id="B1" onclick="selectSlot('B1')">B1</div>
+        <div class="slot available" id="B2" onclick="selectSlot('B2')">B2</div>
+        <div class="slot available" id="B3" onclick="selectSlot('B3')">B3</div>
+        <div class="slot available" id="B4" onclick="selectSlot('B4')">B4</div>
+        <div class="slot available" id="B5" onclick="selectSlot('B5')">B5</div>
+
+        <!-- Row C -->
+        <div class="slot available" id="C1" onclick="selectSlot('C1')">C1</div>
+        <div class="slot available" id="C2" onclick="selectSlot('C2')">C2</div>
+        <div class="slot available" id="C3" onclick="selectSlot('C3')">C3</div>
+        <div class="slot available" id="C4" onclick="selectSlot('C4')">C4</div>
+        <div class="slot available" id="C5" onclick="selectSlot('C5')">C5</div>
+
+        <!-- Row D -->
+        <div class="slot available" id="D1" onclick="selectSlot('D1')">D1</div>
+        <div class="slot available" id="D2" onclick="selectSlot('D2')">D2</div>
+        <div class="slot available" id="D3" onclick="selectSlot('D3')">D3</div>
+        <div class="slot available" id="D4" onclick="selectSlot('D4')">D4</div>
+        <div class="slot available" id="D5" onclick="selectSlot('D5')">D5</div>
+    </div>
+
+    <!-- Button to Book Slot -->
+    <button class="btn" onclick="bookSlot()">Book Slot</button>
+
+    <!-- Legend -->
+    <div class="legend">
+        <span class="legend-item available">Available</span>
+        <span class="legend-item selected">Selected</span>
+        <span class="legend-item reserved">Reserved</span>
+        <span class="legend-item unavailable">Unavailable</span>
+    </div>
+</section>
+
+<footer>
+    <p> © The Gallery Cafe. All rights reserved.</p>
+</footer>
+
+<script>
+    let selectedSlot = null;
+
+    function selectSlot(slotId) {
+        if (selectedSlot) {
+            document.getElementById(selectedSlot).classList.remove('selected');
+            document.getElementById(selectedSlot).classList.add('available');
+        }
+        selectedSlot = slotId;
+        document.getElementById(slotId).classList.remove('available');
+        document.getElementById(slotId).classList.add('selected');
+    }
+
+    function bookSlot() {
+        if (!selectedSlot) {
+            alert("Please select a slot first.");
+            return;
+        }
+
+        // Send the selected slot to PHP via AJAX
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "book.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert(xhr.responseText);
+                // Mark the slot as reserved after booking
+                document.getElementById(selectedSlot).classList.remove('selected');
+                document.getElementById(selectedSlot).classList.add('reserved');
+                selectedSlot = null;
+            }
+        };
+        xhr.send("slot=" + selectedSlot);
+    }
+</script>
+
+</body>
+</html>
